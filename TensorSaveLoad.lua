@@ -1,21 +1,21 @@
 require 'torch'
 require 'paths'
 require 'gnuplot'
+--obecne nacteni zdrojovych dat
 
 --MyFolder = '/home/legomaniak/Dokumenty/site/Kostky/'
 --TrainFileData = 'BB300P10F0000'
 
-
 function NactiData(cesta)
   if paths.filep(cesta) then
-    file = torch.DiskFile(cesta,'r')
+    local file = torch.DiskFile(cesta,'r')
     output = file:readObject()
     file:close()
     return output
   end
 end
 function UlozData(cesta,data)
-    file = torch.DiskFile(cesta,'w')
+    local file = torch.DiskFile(cesta,'w')
     file:writeObject(data)
     file:close()
 end
